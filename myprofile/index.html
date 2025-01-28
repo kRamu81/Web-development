@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<header>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 </head>
+
+
 <body>
     <h1>Welcome to My Portfolio</h1>
     <a href ="">
@@ -27,23 +30,48 @@
             Contact
         </button>
     </a>
-
-    <h1>My profile</h1>
-    <img src="1.jpg" alt="a photo of me" >
+</header>
+<main>
+    <section id ="About">
+        <h1>My profile</h1>
+    <img src="1.jpg" alt="a photo of me" width ="300" height ="300"  >
     <P>I am passionate with DSA+java ,web Development and Data Analyst</P>
 
     <p>I am currently persuing my BTech in<em>KSRM college Kadapa.</em></p>
     <p>I ensuring and practing the web development <i>code with Swaroop.</i></p>
     <p>you can <strong>Click here</strong> to checkout my Skills.</p>
+    </section>
 
-    <h1>My skills</h1>
+    <section id ="skills">
+        <h1>My skills</h1>
     <ol>
         <li>core Java</li>
         <li>Html5</li>
         <li>C(programming language)</li>
     </ol>
-    <br>
-    <h1>Contact Me</h1>
+
+    </section>
+
+    <section id ="projects">
+        <h1>My projects</h1>
+    <table border="1">
+        <tr>
+            <th>Project</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>My portfolio</td>
+            <td>I have built my own portfolio with HTMl,CSS & Javascript</td>
+        </tr>
+        <tr>
+            <td>Currency Converter</td>
+            <td>I have copied from chatgpt to built project</td>
+        </tr>
+    </table>
+    </section>
+
+    <section id ="contact">
+        <h1>Contact Me</h1>
     <p>Feel free to get in touch with me using the form below:</p>
     <form>
         <label for="name">Name:</label>
@@ -69,9 +97,13 @@
         <input type="text">
         <br>
         <button type="submit">Submit</button>
-        
-        
-
     </form>
+</section>
+<footer>
+    <p>Thamk you to All</p>
+
+
+</footer>
+<main>
 </body>
 </html>
