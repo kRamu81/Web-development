@@ -1,3 +1,82 @@
+header{
+    background-color:darkred;
+    color:white;
+    height:100vh;
+    
+}
 body{
-    background-color:rgb(22, 22, 22);
+    margin:0;
+    font-size:15px;
+    background-color:bisque
+}
+*{
+    font-family:"Times new Roman";
+}
+
+h1{
+    font-size:50px;
+    color:blue;
+}
+header h1{
+    margin:0;
+    color:white;
+}
+button{
+    height:40px;
+    width:140px;
+    border:nono;
+    border-radius:10px;
+    cursor: pointer;
+
+}
+.button:hover{
+    background-color:aqua;
+    color:white;
+}
+main{
+    padding:20px;
+
+}
+section{
+    height:100vh;
+    border:1px solid grey;
+    border-radius:20px;
+}
+.submit{
+    height:40px;
+    width:140px;
+    border:nono;
+    border-radius:10px;
+    cursor: pointer;
+    color:white;
+    background-color: blue;
+    
+}
+.submit:hover{
+    background-color:rgb(21, 221, 221);
+    
+}
+.input{
+    border-radius:5px;
+    border:1px solid lightgrey;
+    height:25px;
+}
+footer{
+    background-color:black;
+    height:100px;
+    color:lightgrey;
+
+
+}
+.fixedbutton{
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    height:70px;
+    width:70px;
+    border:none;
+    border-radius:10px;
+    cursor: pointer;
+    color:white;
+    background-color: blue;
 }
