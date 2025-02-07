@@ -1,13 +1,21 @@
 header{
-    background-color:darkred;
+    background-color:darkslategrey;
     color:white;
     height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
 }
 body{
     margin:0;
     font-size:15px;
-    background-color:bisque
+    background-color:bisque;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 *{
     font-family:"Times new Roman";
@@ -65,6 +73,10 @@ footer{
     background-color:black;
     height:100px;
     color:lightgrey;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 
 }
