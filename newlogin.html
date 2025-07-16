@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - FoodieHub</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      background: url('https://img.freepik.com/premium-photo/top-view-ingredients-spaghetti-pasta-with-tomato-sauce-copy-space_67155-5969.jpg') no-repeat center center/cover;
+    }
+
+    .left-section {
+      
+      /*background-color: rgba(30, 30, 30, 0.85);  dark overlay for readability */
+      color: #faae2b;
+      
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2em;
+    }
+
+    .left-section h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      color: #ff9f1a;
+    }
+
+    .left-section p {
+      font-size: 1.2em;
+      max-width: 400px;
+      text-align: center;
+      line-height: 1.5;
+      color: #f0f0f0;
+    }
+
+    .right-section {
+      
+      /*background-color: rgba(30, 30, 30, 0.85);  semi-transparent background */
+
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 250px;
+      
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 0.8em;
+      margin: 0.5em 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 0.8em;
+      background-color: #faae2b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background-color: #e59600;
+    }
+
+    .switch {
+      margin-top: 1em;
+      text-align: center;
+    }
+
+    .switch a {
+      color: #faae2b;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="total_section">
+    <h1><i>Welcome to<br>&nbsp;&nbsp;&nbsp;FoodeeX 🛵</i></h1>
+    <p><i>Discover mouth-watering meals, lightning-fast delivery, and fresh flavors every day.
+Join FoodeeX and get your favorite food delivered straight to your doorstep — hot and delicious!</i></p>
+  </div>
+
+  <div class="total_section">
+    <div class="login-box">
+      <h2 id="formTitle">Login</h2>
+      <input type="text" id="name" placeholder="Name" style="display:none;">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button onclick="handleAuth()">Login</button>
+      <div class="switch">
+        <span id="toggleText">Don't have an account?</span>
+        <a href="#" onclick="toggleForm()">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let isSignup = false;
+
+    function toggleForm() {
+      isSignup = !isSignup;
+      document.getElementById("formTitle").innerText = isSignup ? "Sign Up" : "Login";
+      document.getElementById("name").style.display = isSignup ? "block" : "none";
+      document.querySelector(".login-box button").innerText = isSignup ? "Sign Up" : "Login";
+      document.getElementById("toggleText").innerText = isSignup ? "Already have an account?" : "Don't have an account?";
+    }
+
+    function handleAuth() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password || (isSignup && !name)) return alert("Please fill all fields");
+
+      let users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      if (isSignup) {
+        const exists = users.find(u => u.email === email);
+        if (exists) return alert("User already exists");
+        users.push({ name, email, password });
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("loggedInUser", JSON.stringify({ name, email }));
+        alert("✅ Sign up successful!");
+      } else {
+        const user = users.find(u => u.email === email && u.password === password);
+        if (!user) return alert("❌ Invalid email or password");
+        localStorage.setItem("loggedInUser", JSON.stringify({ name: user.name, email: user.email }));
+        alert("✅ Login successful!");
+      }
+
+      location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

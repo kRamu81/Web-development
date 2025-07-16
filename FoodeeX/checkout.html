@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - FoodieHub</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f1f3f6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 3em auto;
+      background: #fff;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    h2 {
+      text-align: center;
+      color: #2e2e2e;
+      margin-bottom: 1.5em;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1em;
+      color: #333;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.8em;
+      margin-top: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: 0.3s ease;
+    }
+    input:focus, select:focus {
+      border-color: #faae2b;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(250, 174, 43, 0.2);
+    }
+    input[readonly] {
+      background-color: #f9f9f9;
+    }
+    button {
+      margin-top: 2em;
+      width: 100%;
+      padding: 1em;
+      background-color: #faae2b;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    button:hover {
+      background-color: #e59600;
+    }
+    @media (max-width: 600px) {
+      .container {
+        margin: 2em 1em;
+        padding: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Checkout 🛒</h2>
+
+    <form id="checkoutForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="e.g., Aman Sharma" required>
+
+      <label for="address">Delivery Address</label>
+      <input type="text" id="address" placeholder="e.g., 123 Main Street, Delhi" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="e.g., 9876543210" pattern="[0-9]{10}" required>
+
+      <label for="payment">Payment Method</label>
+      <select id="payment" required>
+        <option value="">Select a method</option>
+        <option value="cod">Cash on Delivery</option>
+        <option value="upi">UPI</option>
+        <option value="card">Debit/Credit Card</option>
+      </select>
+
+      <label for="amount">Total Amount (₹)</label>
+      <input type="text" id="amount" readonly>
+
+      <button type="submit">✅ Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    // Show total amount
+    document.addEventListener("DOMContentLoaded", function () {
+      const amount = localStorage.getItem("totalAmount") || "0";
+      document.getElementById("amount").value = `₹${amount}`;
+    });
+
+    // Handle form submit
+    document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("🎉 Order placed successfully!\nAmount: " + document.getElementById("amount").value);
+      localStorage.removeItem("cart_guest");
+      localStorage.removeItem("totalAmount");
+      window.location.href = "index.html";
+    });
+  </script>
+
+</body>
+</html>

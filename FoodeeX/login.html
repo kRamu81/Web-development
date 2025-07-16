@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FoodeeX</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="top-header">
+      <h1>FooDeeX🛵</h1>
+      <div id="userInfo" style="margin-left: 1em; font-size: 0.95em;"></div>
+      <div class="search-cart">
+        <input type="text" placeholder="Search...." class="search-box">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+        <a href="#" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="cart-popup" id="cartPopup">
+      <h3>Your Cart 🛒</h3>
+      <ul id="cartItems"></ul>
+      <input type="text" id="couponCode" placeholder="Enter Coupon Code">
+      <button id="applyCoupon">Apply Coupon</button>
+      <p id="cartTotal">Total: ₹0</p>
+      <button id="clearCart">Clear Cart</button>
+      <a href="cart.html">View Full Cart Page</a>
+    </div>
+
+    <nav id="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About Us</a>
+      <a href="#review">Review</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero animate-fade" id="home">
+    <div class="hero-content">
+      <h2>Delicious Food, Delivered Fast!</h2>
+      <p>Order your favorite meals at your doorstep.</p>
+      <a href="#menu" class="order-btn">Order Now</a>
+    </div>
+  </section>
+
+  <section class="menu animate-zoom" id="menu">
+    <h2>🍽️ Our Special Menu</h2>
+    <p class="menu-subtitle">Handpicked dishes to satisfy your cravings</p>
+
+    <div id="adminForm" style="display: none; padding: 1em; background: #fff0f5; margin: 1em 0;">
+      <h3>Add New Menu Item (Admin Only)</h3>
+      <input type="text" id="newDishName" placeholder="Dish Name">
+      <input type="number" id="newDishPrice" placeholder="Price">
+      <input type="text" id="newDishImage" placeholder="Image Path (e.g. Image/pizza.jpg)">
+      <button id="addNewItem">Add Dish</button>
+    </div>
+
+    <div class="foods-cards" id="menuContainer"></div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p> At <strong>FoodeeX</strong>, we believe in serving happiness with every bite. Whether you're craving classic comfort food or adventurous international flavors, we deliver it all — fresh, hot, and delicious.<br><br>
+          Our mission is to make your dining experience simple, satisfying, and delightful – right from the first click to the last bite.</p>
+      </div>
+      <div class="about-video">
+        <video src="food.mp4" loop autoplay muted></video>
+      </div>
+    </div>
+  </section>
+
+  <section class="review" id="review">
+    <h2>Customer Reviews</h2>
+    <p class="review-subtitle">What our happy customers say about us</p>
+    <div class="review-cards">
+      <div class="review-card">
+        <img src="couple.jpg" alt="Beautiful Couple">
+        <h4>Ms.Dhoni</h4>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Delicious food and quick delivery. Highly recommended!"</p>
+      </div>
+      <div class="review-card">
+        <img src="anuj.jpg" alt="Arjun Verma">
+        <h4>Arjun Verma</h4>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <p>"Loved the variety on the menu. The cold coffee was perfect!"</p>
+      </div>
+      <div class="review-card">
+        <img src="akshu.jpg" alt="Sneha Kapoor">
+        <h4>V.Kohli</h4>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"The packaging was neat and everything was fresh."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p class="contact-subtitle">We'd love to hear from you!</p>
+    <div class="contact-container">
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <div><i class="fas fa-map-marker-alt"></i> Kadapa, Andhra Pradesh, India</div>
+        <div><i class="fas fa-envelope"></i> support@OrderAnna.com</div>
+        <div><i class="fas fa-phone-alt"></i> +91 98765 43210</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>FooDeeX🛵</h3>
+        <p>Serving happiness with every bite. Order your favorite meals anytime, anywhere.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#review">Review</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 FoodeeX. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <div id="snackbar"></div>
+</body>
