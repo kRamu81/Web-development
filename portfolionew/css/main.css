@@ -1110,7 +1110,7 @@ header .logo a {
 	display: block;
 	margin:0px 0px 0px 10px;
 	margin-bottom:20px;
-	border: none;
+	border:None;
 	text-shadow:2px 2px 2px #3095c4;
 	color: white;
 	/* width: 100%; */
