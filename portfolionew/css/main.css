@@ -1,10 +1,3 @@
-#experience,
-#achievements,
-#certificates {
-  background-color: #c2c2c2;
-}
-
-
 /**
  * =================================================================== 
  *  ------------------------------------------------------------------
@@ -597,7 +590,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-	color: #3095c4;
+	color: ;
 	border-bottom: 1px solid #3095c4;
 }
 label, legend {
@@ -1304,7 +1297,7 @@ header{
  * ------------------------------------------------------------------- 
  */
 #intro {
-	background: #151515 url(https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0) no-repeat center bottom;
+	background: #151515 url(../images/bgg.jpg) no-repeat center bottom;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -2155,7 +2148,7 @@ header{
  * ------------------------------------------------------------------- 
  */
 #stats {
-	background: #1080ca;
+	background: #990047;
 	padding-top: 7.2rem;
 	padding-bottom: 6rem;
 	text-align: center;
