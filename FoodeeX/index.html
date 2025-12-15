@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FoodeeX - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://img.freepik.com/premium-photo/top-view-ingredients-spaghetti-pasta-with-tomato-sauce-copy-space_67155-5969.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(17, 17, 17, 0.95);
+      border-radius: 12px;
+      padding: 2em;
+      max-width: 350px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .container h1 {
+      color: #faae2b;
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    .container p {
+      font-size: 1em;
+      color: #806d6d;
+      margin-bottom: 1.5em;
+    }
+
+    .container h2 {
+      color: white;
+      margin-bottom: 1em;
+    }
+
+    .container input {
+      width: 100%;
+      padding: 0.8em;
+      margin: 0.5em 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    .container button {
+      width: 100%;
+      padding: 0.8em;
+      background-color: #faae2b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 1em;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .container button:hover {
+      background-color: #e59600;
+    }
+
+    .switch {
+      margin-top: 1em;
+    }
+
+    .switch span {
+      color: white;
+    }
+
+    .switch a {
+      color: #faae2b;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.5em;
+      }
+
+      .container h1 {
+        font-size: 1.6em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome <br>FoodeeX</h1>
+    <p>Delicious food delivered fast. Login or sign up to get started!</p>
+
+    <h2 id="formTitle">Login</h2>
+    <input type="text" id="name" placeholder="Name" style="display:none;" />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="handleAuth()">Login</button>
+
+    <div class="switch">
+      <span id="toggleText">Don't have an account?</span>
+      <a href="#" onclick="toggleForm()">Sign up</a>
+    </div>
+  </div>
+
+  <script>
+    let isSignup = false;
+
+    function toggleForm() {
+      isSignup = !isSignup;
+      document.getElementById("formTitle").innerText = isSignup ? "Sign Up" : "Login";
+      document.getElementById("name").style.display = isSignup ? "block" : "none";
+      document.querySelector("button").innerText = isSignup ? "Sign Up" : "Login";
+      document.getElementById("toggleText").innerText = isSignup
+        ? "Already have an account?"
+        : "Don't have an account?";
+    }
+
+    function handleAuth() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password || (isSignup && !name)) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users") || "[]");
+
+      if (isSignup) {
+        const exists = users.find(u => u.email === email);
+        if (exists) {
+          alert("User already exists");
+          return;
+        }
+        users.push({ name, email, password });
+        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("loggedInUser", JSON.stringify({ name, email }));
+        alert("✅ Sign up successful!");
+      } else {
+        const user = users.find(u => u.email === email && u.password === password);
+        if (!user) {
+          alert("❌ Invalid email or password");
+          return;
+        }
+        localStorage.setItem("loggedInUser", JSON.stringify({ name: user.name, email: user.email }));
+        alert("✅ Login successful!");
+      }
+
+      location.href = "login.html"; // Change to your home/dashboard page if needed
+    }
+  </script>
+</body>
+</html>
