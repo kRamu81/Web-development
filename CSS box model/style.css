@@ -1,0 +1,14 @@
+nav{
+    height: 55px;
+    width: 100%;
+    background: linear-gradient(to right,red,orange,yellow);
+}
+
+article{
+    height: 55px;
+    width: 80%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+    margin: auto;
+}
