@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 50px;
+  }
+  
+  /* Profile card container */
+  .profile-card {
+    position: relative; /* required for z-index */
+    display: inline-block;
+    width: 250px;
+    height: 150px;
+    background-color: #3498db;
+    color: white;
+    padding: 50px;
+    border-radius: 12px;
+    border: 1px solid #2c80b4;
+  }
+  
+  /* Profile picture overlapping the card */
+  .profile-pic {
+    position: absolute;
+    top: -55px; /* overlap the top */
+    right: 150px;
+    width: 100px;
+    height: 100px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1; /* on top of the card */
+  }
+  *{
+    align-items: center;
+  }
